@@ -159,6 +159,11 @@ public class Main extends javax.swing.JFrame {
 
         mniTriangulo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mniTriangulo.setText("Triangulo");
+        mniTriangulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniTrianguloActionPerformed(evt);
+            }
+        });
         mnuFiguras.add(mniTriangulo);
 
         mnbMain.add(mnuFiguras);
@@ -173,17 +178,17 @@ public class Main extends javax.swing.JFrame {
 
     private void pnlDibujarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pnlDibujarActionPerformed
         Circulo circulo;
-        Cuadrado cuadrado;
+        Triangulo triangulo;
         if (figure == 0) {
             circulo = new Circulo(Integer.parseInt(txtRadio.getText()));
             txtPerimetro.setText(Float.toString(circulo.Perimetro()));
             txtArea.setText(Float.toString(circulo.Area()));
             circulo.drawFigure(pnlCanvas.getGraphics());
         } else if (figure == 1) {
-            cuadrado = new Cuadrado(Integer.parseInt(txtRadio.getText()));
-            txtPerimetro.setText(Float.toString(cuadrado.Perimetro()));
-            txtArea.setText(Float.toString(cuadrado.Area()));
-            cuadrado.drawFigure(pnlCanvas.getGraphics());
+            triangulo = new Triangulo(Integer.parseInt(txtRadio.getText()), Integer.parseInt(txtAltura.getText()));
+            txtPerimetro.setText(Float.toString(triangulo.Perimetro()));
+            txtArea.setText(Float.toString(triangulo.Area()));
+            triangulo.drawFigure(pnlCanvas.getGraphics());
         }
     }//GEN-LAST:event_pnlDibujarActionPerformed
 
@@ -198,12 +203,19 @@ public class Main extends javax.swing.JFrame {
 
     private void mniCuadradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniCuadradoActionPerformed
         if (evt.getSource().equals(mniCuadrado)) {
- figure = 1;
- lblAltura.setVisible(false);
- txtAltura.setVisible(false);
- lblRadio.setText("Lado");
-         }
+            figure = 1;
+            lblAltura.setVisible(false);
+            txtAltura.setVisible(false);
+            lblRadio.setText("Lado");
+        }
     }//GEN-LAST:event_mniCuadradoActionPerformed
+
+    private void mniTrianguloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniTrianguloActionPerformed
+        figure = 1;
+        lblAltura.setVisible(true);
+        txtAltura.setVisible(true);
+        lblRadio.setText("Base");
+    }//GEN-LAST:event_mniTrianguloActionPerformed
 
     /**
      * @param args the command line arguments
