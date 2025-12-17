@@ -66,11 +66,11 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnlParametrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRadio)
-                    .addComponent(txtRadio, javax.swing.GroupLayout.PREFERRED_SIZE, 22, Short.MAX_VALUE))
+                    .addComponent(txtRadio))
                 .addGap(17, 17, 17)
                 .addGroup(pnlParametrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAltura)
-                    .addComponent(txtAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 22, Short.MAX_VALUE))
+                    .addComponent(txtAltura))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -114,11 +114,11 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnlParametros1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPerimetro)
-                    .addComponent(txtPerimetro, javax.swing.GroupLayout.PREFERRED_SIZE, 22, Short.MAX_VALUE))
+                    .addComponent(txtPerimetro))
                 .addGap(17, 17, 17)
                 .addGroup(pnlParametros1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pnlAltura1)
-                    .addComponent(txtArea, javax.swing.GroupLayout.PREFERRED_SIZE, 22, Short.MAX_VALUE))
+                    .addComponent(txtArea))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -138,11 +138,6 @@ public class Main extends javax.swing.JFrame {
         getContentPane().add(pnlCanvas, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 360, 280));
 
         mnuFiguras.setText("Figuras");
-        mnuFiguras.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuFigurasActionPerformed(evt);
-            }
-        });
 
         mniCirculo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mniCirculo.setText("Circulo");
@@ -155,6 +150,11 @@ public class Main extends javax.swing.JFrame {
 
         mniCuadrado.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mniCuadrado.setText("Cuadrado");
+        mniCuadrado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniCuadradoActionPerformed(evt);
+            }
+        });
         mnuFiguras.add(mniCuadrado);
 
         mniTriangulo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -173,11 +173,18 @@ public class Main extends javax.swing.JFrame {
 
     private void pnlDibujarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pnlDibujarActionPerformed
         Circulo circulo;
-        circulo = new Circulo(Integer.parseInt(txtRadio.getText()));
-        txtPerimetro.setText(Float.toString(circulo.Perimetro()));
-        txtArea.setText(Float.toString(circulo.Area()));
-        circulo.drawFigure(pnlCanvas.getGraphics());
-
+        Cuadrado cuadrado;
+        if (figure == 0) {
+            circulo = new Circulo(Integer.parseInt(txtRadio.getText()));
+            txtPerimetro.setText(Float.toString(circulo.Perimetro()));
+            txtArea.setText(Float.toString(circulo.Area()));
+            circulo.drawFigure(pnlCanvas.getGraphics());
+        } else if (figure == 1) {
+            cuadrado = new Cuadrado(Integer.parseInt(txtRadio.getText()));
+            txtPerimetro.setText(Float.toString(cuadrado.Perimetro()));
+            txtArea.setText(Float.toString(cuadrado.Area()));
+            cuadrado.drawFigure(pnlCanvas.getGraphics());
+        }
     }//GEN-LAST:event_pnlDibujarActionPerformed
 
     private void mniCirculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniCirculoActionPerformed
@@ -189,9 +196,14 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_mniCirculoActionPerformed
 
-    private void mnuFigurasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuFigurasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mnuFigurasActionPerformed
+    private void mniCuadradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniCuadradoActionPerformed
+        if (evt.getSource().equals(mniCuadrado)) {
+ figure = 1;
+ lblAltura.setVisible(false);
+ txtAltura.setVisible(false);
+ lblRadio.setText("Lado");
+         }
+    }//GEN-LAST:event_mniCuadradoActionPerformed
 
     /**
      * @param args the command line arguments

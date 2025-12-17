@@ -8,9 +8,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Figuras"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuFigurasActionPerformed"/>
-          </Events>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="mniCirculo">
               <Properties>
@@ -30,6 +27,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cuadrado"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniCuadradoActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mniTriangulo">
               <Properties>
@@ -112,12 +112,12 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblRadio" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtRadio" alignment="3" pref="22" max="32767" attributes="0"/>
+                      <Component id="txtRadio" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblAltura" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtAltura" alignment="3" pref="22" max="32767" attributes="0"/>
+                      <Component id="txtAltura" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="20" max="32767" attributes="0"/>
               </Group>
@@ -202,12 +202,12 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblPerimetro" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtPerimetro" alignment="3" pref="22" max="32767" attributes="0"/>
+                      <Component id="txtPerimetro" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="pnlAltura1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtArea" alignment="3" pref="22" max="32767" attributes="0"/>
+                      <Component id="txtArea" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="20" max="32767" attributes="0"/>
               </Group>
